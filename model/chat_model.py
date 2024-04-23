@@ -40,7 +40,7 @@ class TextToTextModel(T5ForConditionalGeneration):
         generation_config.pad_token_id = 0
         generation_config.decoder_start_token_id = self.config.decoder_start_token_id
         generation_config.max_new_tokens = max_seq_len
-        # generation_config.repetition_penalty = 1.1 # 重复词惩罚
+        generation_config.repetition_penalty = 1.5 # 重复词惩罚
 
         if search_type == 'greedy':
             generation_config.num_beams = 1
@@ -64,6 +64,8 @@ class TextToTextModel(T5ForConditionalGeneration):
             generation_config.penalty_alpha = 0.5
             generation_config.top_k = 50
 
+        # print(f'generation_config: {generation_config}')
+        print(self.device)
         result = self.generate(
             inputs=input_ids,
             attention_mask=attention_mask,

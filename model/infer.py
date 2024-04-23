@@ -64,7 +64,8 @@ class ChatBot:
                 )
        
 
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'mps')
+        print(f'using {self.device}')
         self.model.to(self.device)
 
         self.streamer = TextIteratorStreamer(tokenizer=tokenizer, clean_up_tokenization_spaces=True, skip_special_tokens=True)

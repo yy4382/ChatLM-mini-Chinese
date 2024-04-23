@@ -1206,7 +1206,7 @@ if __name__ == '__main__':
 
     # dataset_length_cnt()
 
-    # process_belle_knowledge_enhanced_dataset_for_finetune(max_len=320, group_cnt=50000)
+    process_belle_knowledge_enhanced_dataset_for_finetune(max_len=320, group_cnt=50000)
 
     # count_my_parquet_data(PROJECT_ROOT + '/data/')
 

@@ -83,7 +83,7 @@ def pre_train(config: TrainConfig) -> None:
     training_args = Seq2SeqTrainingArguments(
         output_dir=config.output_dir,
         per_device_train_batch_size=config.batch_size_per_gpu,
-        auto_find_batch_size=True,  # 防止OOM
+        auto_find_batch_size=False,  # 防止OOM
         gradient_accumulation_steps=config.gradient_accumulation_steps,
         learning_rate=config.learn_rate,
         logging_steps=config.logging_steps,
